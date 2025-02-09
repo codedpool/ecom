@@ -1,9 +1,16 @@
 import React from 'react'
 import './index.css'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import UserLayout from './components/Layout/UserLayout'
 
 const App = () => {
   return (
-    <div className='underline'>Hello</div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<UserLayout/>}>{/* User LAyout*/}</Route>
+      <Route>{/* Admin Layout*/}</Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
