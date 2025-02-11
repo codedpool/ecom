@@ -15,7 +15,7 @@ const App = () => {
     <Toaster position="top-right"/>
     <Routes>
       <Route path='/' element={<UserLayout/>}>{/* User LAyout*/}</Route>
-      <Route path='/best' element={<Home/>}>{/* User LAyout*/}</Route>
+  
       
       <Route>{/* Admin Layout*/}</Route>
      
