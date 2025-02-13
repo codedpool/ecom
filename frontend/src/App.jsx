@@ -1,10 +1,12 @@
-import React from 'react';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserLayout from './components/Layout/UserLayout';
 
 import { toast, Toaster } from 'sonner';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -13,7 +15,11 @@ const App = () => {
       <Routes>
         {/* User Layout Routes */}
         <Route path="/" element={<UserLayout />}>
-          <Route index element={<Home />} /> {/* Home page */}
+          <Route index element={<Home />} /> 
+          {/* Home page */}
+          <Route path ="login" element ={<Login/>}/>
+          <Route path ="register" element ={<Register/>}/>
+          <Route path ="profile" element ={<Profile/>}/>
           {/* Add more user routes here if needed */}
         </Route>
 
