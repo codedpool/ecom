@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 import Topbar from '../Layout/Topbar'
 import Navbar from './Navbar'
 
