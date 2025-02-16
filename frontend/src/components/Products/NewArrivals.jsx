@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const NewArrivals = () => {
   const scrollRef = useRef(null);
@@ -10,44 +11,20 @@ const NewArrivals = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const newArrivals = [
-    {
-      _id: "1",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [{ url: "https://picsum.photos/500/500?random=1", altText: "Stylish Jacket" }],
-    },
-    {
-      _id: "2",
-      name: "Casual Sneakers",
-      price: 80,
-      images: [{ url: "https://picsum.photos/500/500?random=2", altText: "Casual Sneakers" }],
-    },
-    {
-      _id: "3",
-      name: "Trendy Hoodie",
-      price: 60,
-      images: [{ url: "https://picsum.photos/500/500?random=3", altText: "Trendy Hoodie" }],
-    },
-    {
-      _id: "4",
-      name: "Leather Boots",
-      price: 150,
-      images: [{ url: "https://picsum.photos/500/500?random=4", altText: "Leather Boots" }],
-    },
-    {
-      _id: "5",
-      name: "Classic Watch",
-      price: 200,
-      images: [{ url: "https://picsum.photos/500/500?random=5", altText: "Classic Watch" }],
-    },
-    {
-      _id: "6",
-      name: "Denim Jacket",
-      price: 130,
-      images: [{ url: "https://picsum.photos/500/500?random=6", altText: "Denim Jacket" }],
-    },
-  ];
+  const [newArrivals, setNewArrivals] = useState([]);
+
+  useEffect(() => {
+    // Fetch new arrivals
+    const fetchNewArrivals = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`);
+        setNewArrivals(res.data);
+      } catch (error) {
+        console.error("Error fetching new arrivals:", error);
+      }
+    };
+    fetchNewArrivals();
+  }, []);
 
   // Function to update scroll buttons state
   const updateScrollButtons = () => {
@@ -95,7 +72,7 @@ const NewArrivals = () => {
       updateScrollButtons();
     }
     return () => container?.removeEventListener("scroll", updateScrollButtons);
-  }, []);
+  }, [newArrivals]);
 
   return (
     <section>
