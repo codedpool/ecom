@@ -1,26 +1,28 @@
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { updateCartItemQuantity } from "../../redux/slices/cartSlice";
 
-const CartContents = () => {
-  const cartProducts = [
-    {
-      productId: 1,
-      name: "T-shirt",
-      size: "M",
-      color: "Black",
-      quantity: 1,
-      price: 15,
-      image: "https://picsum.photos/200?random=1",
-    },
-    {
-      productId: 2,
-      name: "Jeans",
-      size: "M",
-      color: "Black",
-      quantity: 1,
-      price: 25,
-      image: "https://picsum.photos/200?random=2",
-    },
-  ];
+const CartContents = ({cart,userId,guestId}) => {
+  const dispatch =useDispatch();
+
+  // Handle adding or subtracting from cart
+
+  const handleAddToCart={pproductId,delta,quantity,size,color}=>{
+    const newQuantity=quality+delta;
+    if(newQuantity>=1){
+      dispatch(
+        updateCartItemQuantity({
+          productId,
+          quantity:newQuantity,
+          guestId,
+          userId,
+          size,
+          color,
+        })
+      )
+    }
+  }
+
 
   return (
     <div>
