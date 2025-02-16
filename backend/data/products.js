@@ -18,12 +18,12 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://rukminim2.flixcart.com/image/850/1000/kpydrbk0/shirt/g/9/p/s-black-5-jai-textiles-original-imag42m5hcfue7np.jpeg?q=90&crop=false",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
         url: "https://picsum.photos/500/500?random=40",
-        altText: "Classic Oxford Button-Down Shirt Back View",
+        altText: "https://jssshop.in/wp-content/uploads/2024/10/71j8jgqYbzL._SX569_.jpg",
       },
     ],
     rating: 4.5,
@@ -46,11 +46,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://d118ps6mg0w7om.cloudfront.net/media/catalog/product/1/_/1_mfs-14881-02-white.jpg",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://cdn09.nnnow.com/web-images/large/styles/Y7GX2HXO84V/1677650459825/5.jpg",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -74,11 +74,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://estilocus.com/cdn/shop/files/estilocus_vudu2364.png?v=1737807662",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://estilocus.com/cdn/shop/files/estilocus_vudu2329.png?v=1737807662",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -103,10 +103,10 @@ const products = [
     images: [
       {
         url: "https://picsum.photos/500/500?random=45",
-        altText: "Printed Resort Shirt Front View",
+        altText: "https://www.jiomart.com/images/product/original/rvo9aozhvy/men-s-half-sleeves-printed-resort-shirt-product-images-rvo9aozhvy-0-202307260349.jpg?im=Resize=(500,630)",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://m.media-amazon.com/images/I/91v7-Ikpb4L._AC_UY1100_.jpg",
         altText: "Printed Resort Shirt Back View",
       },
     ],
