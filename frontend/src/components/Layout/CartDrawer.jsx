@@ -48,12 +48,7 @@ const userId=user?user._id :null;
       <div className="p-4 bg-white sticky bottom-0">
       {cart && cart ?.products?.length>0 && (
         <>
-        <button  onClick={handleCheckout}className="w-full py-3 bg-gray-800 text-white rounded-lg">
-          Checkout
-        </button>
-        <p className="text-sm tracking-tighter text-gray-500 mt-2 text-center">
-          Shipping, taxes, and discounts calculated at checkout.
-        </p></>
+        </>
       )}
         <button  onClick={handleCheckout}className="w-full py-3 bg-gray-800 text-white rounded-lg">
           Checkout
