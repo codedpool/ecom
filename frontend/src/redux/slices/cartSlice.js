@@ -33,10 +33,18 @@ export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ productId, quantity, size, color, guestId, userId }, { rejectWithValue }) => {
     try {
+      const token = localStorage.getItem("userToken"); // Retrieve token from localStorage
+
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
-        { productId, quantity, size, color, guestId, userId }
+        { productId, quantity, size, color, guestId, userId },
+        {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "", // Send token if available
+          },
+        }
       );
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "An error occurred");
@@ -136,7 +144,7 @@ const cartSlice = createSlice({
       })
       .addCase(addToCart.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message || "Failed to add to cart";
+        state.error = action.payload || "Failed to add to cart";
       })
       .addCase(updateCartItemQuantity.pending, (state) => {
         state.loading = true;

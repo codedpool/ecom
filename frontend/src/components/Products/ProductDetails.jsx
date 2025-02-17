@@ -51,6 +51,7 @@ const ProductDetails = ({ productId }) => {
                 userId: user?._id,
             })
         )
+        .unwrap()
         .then(() => {
             toast.success("Product added to cart", { duration: 1000 });
         })
