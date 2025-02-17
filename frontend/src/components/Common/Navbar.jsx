@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+      <nav className="sticky top-0 z-50 container mx-auto flex items-center justify-between py-4 px-6 bg-white shadow-md">
         {/* Left - Logo */}
         <div>
           <Link to="/" className="text-2xl font-medium">
@@ -61,7 +61,6 @@ const Navbar = () => {
             {cartItemCount > 0 && (<span className="absolute -top-1 -right-2 bg-red-600 text-white text-xs rounded-full px-2">
               {cartItemCount}
             </span>)}
-            
           </button>
 
           {/* Search */}
@@ -98,7 +97,7 @@ const Navbar = () => {
 
             <Link to="/collections/all?category=Bottom+Wear" onClick={toggleNavDrawer} className="block py-2 text-gray-700 hover:text-black">Bottom Wear </Link>
           </nav>
-          </div>
+        </div>
       </div>
     </>
   );
