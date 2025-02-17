@@ -49,7 +49,7 @@ const Checkout = () => {
   const handlePaymentSuccess = async (details) => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/checkout/pay`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
         { paymentStatus: "paid", paymentDetails: details },
         {
           headers: {
@@ -57,11 +57,9 @@ const Checkout = () => {
           },
         }
       );
-      if (response.status === 200) {
+     
         await handleFinalizeCheckout(checkoutId);
-      } else {
-        console.error("Payment failed");
-      }
+    
     } catch (error) {
       console.error(error);
     }
@@ -78,11 +76,9 @@ const Checkout = () => {
           },
         }
       );
-      if (response.status === 200) {
+     
         navigate("/order-confirmation");
-      } else {
-        console.error("Finalization failed");
-      }
+      
     } catch (error) {
       console.error(error);
     }
