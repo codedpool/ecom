@@ -6,7 +6,7 @@ const CartContents = ({ cart, userId, guestId }) => {
   const dispatch = useDispatch();
 
   // Handle adding or subtracting items from cart
-  const handleAddToCart = ({ productId, delta, quantity, size, color }) => {
+  const handleAddToCart = (productId, delta, quantity, size, color ) => {
     const newQuantity = quantity + delta;
     if (newQuantity >= 1) {
       dispatch(

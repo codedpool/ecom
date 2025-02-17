@@ -38,6 +38,10 @@ const productSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  colors:{
+    type: [String],
+    required: true,
+  },
   collections:{
     type: String,
   },
@@ -51,7 +55,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      altRext:{
+      altText:{
         type:String,
       },
     },
@@ -99,4 +103,4 @@ const productSchema = new mongoose.Schema({
   },
 }, {timestamps: true});
 
-module.exports = mongoose.model("Product", productSchema); 
+module.exports = mongoose.model("Product", productSchema);
