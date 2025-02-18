@@ -275,6 +275,8 @@ We welcome contributions! To contribute:
 4. Push to the branch (`git push origin feature/YourFeatureName`).
 5. Open a pull request.
 
+
+
 ---
 
 ## License
@@ -282,4 +284,5 @@ We welcome contributions! To contribute:
 This project is licensed under the **ISC License**. See the `LICENSE` file for more details.
 
 ---
+Created with 🧠💓 at AdaHacks 🐢
 
