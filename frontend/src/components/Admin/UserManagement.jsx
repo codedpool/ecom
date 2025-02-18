@@ -1,13 +1,21 @@
 import { useState } from "react";
+import { addUser } from "../../redux/slices/adminSlice";
+import { deleteUser } from "../../redux/slices/adminSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserManagement = () => {
-  const [users, setUsers] = useState([
-    {
-      name: "Admin User",
-      email: "admin@example.com",
-      role: "admin",
-    },
-  ]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  const {users, loading, error} = useSelector(state=>state.admin);
+
+  useEffect(() => {
+   if (user && user.role !== "admin") {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,6 +33,7 @@ const UserManagement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(addUser(formData));
 
     // Add new user (excluding password for display)
     setUsers([...users, { name: formData.name, email: formData.email, role: formData.role }]);
@@ -39,19 +48,19 @@ const UserManagement = () => {
   };
 
   const handleRoleChange = (index, newRole) => {
-    const updatedUsers = [...users];
-    updatedUsers[index].role = newRole;
-    setUsers(updatedUsers);
+    dispatch(updateUserRole({ id: userId, role: newRole }));
   };
 
   const handleDeleteUser = (index) => {
-    setUsers(users.filter((_, i) => i !== index));
+   if(window.confirm("Are you sure you want to delete this user?")){
+      dispatch(deleteUser(userId));
+    }
   };
 
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-6">User Management</h2>
-
+      {loading && <p>Loading...</p>} {error && <p>{error}</p>}
       {/* Add New User Form */}
       <div className="bg-white p-6 shadow-md rounded-lg mb-6">
         <h3 className="text-lg font-bold mb-4">Add New User</h3>

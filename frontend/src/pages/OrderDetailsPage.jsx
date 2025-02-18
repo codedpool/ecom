@@ -1,39 +1,24 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOrderDetails } from "../redux/slices/orderSlice";
 
 const OrderDetailsPage = () => {
   const { id } = useParams();
-  const [orderDetails, setOrderDetails] = useState(null);
+  const dispatch = useDispatch();
+  const { orderDetails, loading, error } = useSelector((state) => state.orderDetails);
 
-  useEffect(() => {
-    const mockOrderDetails = {
-      _id: id,
-      createdAt: new Date("12/18/2024"),
-      isPaid: true,
-      isDelivered: false,
-      paymentMethod: "PayPal",
-      shippingMethod: "Standard",
-      shippingAddress: { city: "New York", country: "USA" },
-      orderItems: [
-        {
-          productID: "1",
-          name: "Jacket",
-          price: 120,
-          quantity: 1,
-          image: "https://picsum.photos/150?random=1",
-        },
-        {
-          productID: "2",
-          name: "Shirt",
-          price: 150,
-          quantity: 2,
-          image: "https://picsum.photos/150?random=2",
-        },
-      ],
-    };
+ useEffect(() => {
+    dispatch(fetchOrderDetails(id));
+  }, [dispatch, id]);
 
-    setOrderDetails(mockOrderDetails);
-  }, [id]);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>{error}</p>;
+  }
+  
 
   return (
     <div className="max-w-5xl mx-auto p-6">
