@@ -127,7 +127,7 @@ const Footer = () => {
               className="text-gray-600 hover:text-gray-800 transition-colors"
             >
               <TbFilePhone className="inline-block mr-2" />
-              0123-456-7890
+              +91 9155808901
             </a>
           </div>
         </div>
@@ -135,7 +135,7 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="container mx-auto mt-12 px-4 lg:px-0 border-t border-gray-200 pt-6">
-        <p className="text-gray-500 text-sm tracking-lighter text-center"> 2025 Ecommerce. All rights reserved.</p>
+        <p className="text-gray-500 text-sm tracking-lighter text-center"> 2025 Trendora. All rights reserved.</p>
       </div>
     </footer>
   );

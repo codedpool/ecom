@@ -44,10 +44,10 @@ const Navbar = () => {
           </Link>
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/collections/all?gender=Men" className="text-lg text-gray-700 hover:text-black font-medium uppercase">
+            <Link to="/collections/all?gender=Men" className="text-lg text-gray-700 text-bold hover:text-black font-medium uppercase">
               Men
             </Link>
-            <Link to="/collections/all?gender=Women" className="text-lg text-gray-700 hover:text-black font-medium uppercase">
+            <Link to="/collections/all?gender=Women" className="text-lg text-gray-700 text-bold hover:text-black font-medium uppercase">
               Women
             </Link>
           </div>
