@@ -76,7 +76,7 @@ const Checkout = () => {
         }
       );
 
-      navigate("/order-confirmation");
+      navigate("/my-orders");
     } catch (error) {
       console.error(error);
     }
