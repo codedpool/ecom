@@ -85,24 +85,7 @@ const FilterSidebar = () => {
         <div className="p-4">
             <h3 className="text-xl font-medium text-gray-800 mb-4">Filter</h3>
 
-            {/* Category Filter */}
-            <div className="mb-6">
-                <label className="block text-gray-600 font-medium mb-2">Category</label>
-                {categories.map((category) => (
-                    <div key={category} className="flex items-center mb-1">
-                        <input
-                            type="radio"
-                            name="category"
-                            value={category}
-                            checked={filters.category === category}
-                            onChange={handleFilterChange}
-                            className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-                        />
-                        <span className="text-gray-700">{category}</span>
-                    </div>
-                ))}
-            </div>
-
+           
             {/* Gender Filter */}
             <div className="mb-6">
                 <label className="block text-gray-600 font-medium mb-2">Gender</label>
