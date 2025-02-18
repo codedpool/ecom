@@ -1,0 +1,23 @@
+/* Home.css */
+
+/* Import the Great Vibes font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Define the Great Vibes font class */
+.shop-smart-heading {
+  font-family: "Great Vibes", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem; /* Adjust size as needed */
+  color: #333; /* Dark gray color for better visibility */
+  text-align: center;
+  margin-bottom: 2rem; /* Add spacing below the heading */
+}
+
+
+/* Loading Text Style */
+.loading-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}

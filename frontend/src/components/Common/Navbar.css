@@ -1,0 +1,25 @@
+/* Navbar.css */
+
+/* Import the Great Vibes font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Define the Great Vibes font class */
+.great-vibes-regular {
+  font-family: "Great Vibes", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* General Navbar Styles */
+nav {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-blur {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-solid {
+  background-color: white;
+}
