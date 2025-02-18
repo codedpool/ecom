@@ -9,10 +9,10 @@ const FeaturedSection = () => {
           <HiShoppingBag className="text-3xl" />
         </div>
         <h4 className="tracking-tighter font-semibold mb-2">
-          FREE INTERNATIONAL SHIPPING
+          FREE SHIPPING
         </h4>
         <p className="text-gray-600 text-sm tracking-tighter">
-          On all orders over $100.00
+          On all orders over ₹1500
         </p>
       </div>
 
@@ -22,7 +22,7 @@ const FeaturedSection = () => {
           <HiArrowPath className="text-3xl" />
         </div>
         <h4 className="tracking-tighter font-semibold mb-2">
-          45 DAYS RETURN
+          15 DAYS RETURN
         </h4>
         <p className="text-gray-600 text-sm tracking-tighter">
           Money back guarantee

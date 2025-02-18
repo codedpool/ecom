@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
-import heroImg from '../../assets/rabbit-hero.webp';
+import heroImg from '../../assets/hero.webp';
 
 const Hero = () => {
   return (
@@ -17,12 +17,12 @@ const Hero = () => {
         <div className='text-center text-white p-6'>
           {/* Heading */}
           <h1 className='text-4xl md:text-9xl text-white font-bold tracking-tighter uppercase mb-4'>
-            Vacation <br/> Ready
+            Buy <br/> Paradise
           </h1>
 
           {/* Description */}
           <p className='text-sm tracking-tighter md:text-lg mb-6'>
-            Explore our vacation-ready outfits with fast worldwide shipping.
+          Discover vacation-ready styles with quick global delivery.
           </p>
 
           {/* Shop Now Button */}
