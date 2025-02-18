@@ -284,5 +284,5 @@ We welcome contributions! To contribute:
 This project is licensed under the **ISC License**. See the `LICENSE` file for more details.
 
 ---
-Created with 🧠💓 at AdaHacks 🐢
+Created with 🧠💓 at AdaHacks by 🦊🐢
 
