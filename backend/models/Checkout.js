@@ -55,6 +55,7 @@ const checkoutSchema = new mongoose.Schema({
   paymentMethod: {
     type: String,
     required: true,
+    enum: ['PayPal', 'COD'],
   },
   totalPrice: {
     type: Number,

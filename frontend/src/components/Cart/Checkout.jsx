@@ -57,9 +57,8 @@ const Checkout = () => {
           },
         }
       );
-     
-        await handleFinalizeCheckout(checkoutId);
-    
+
+      await handleFinalizeCheckout(checkoutId);
     } catch (error) {
       console.error(error);
     }
@@ -76,11 +75,40 @@ const Checkout = () => {
           },
         }
       );
-     
-        navigate("/order-confirmation");
-      
+
+      navigate("/order-confirmation");
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  // COD Button Handler
+  const handleCOD = async () => {
+    try {
+      // Simulate payment success without actual payment
+      const mockPaymentDetails = {
+        paymentStatus: "paid",
+        paymentDetails: {
+          method: "Paypal",
+          status: "Pending Confirmation",
+        },
+      };
+
+      // Update checkout as paid
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
+        mockPaymentDetails,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      );
+
+      // Finalize the checkout
+      await handleFinalizeCheckout(checkoutId);
+    } catch (error) {
+      console.error("Error processing COD:", error);
     }
   };
 
@@ -106,7 +134,6 @@ const Checkout = () => {
               disabled
             />
           </div>
-
           <h3 className="text-lg mb-4">Delivery</h3>
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
@@ -140,7 +167,6 @@ const Checkout = () => {
               />
             </div>
           </div>
-
           <div className="mb-4">
             <label className="block text-gray-700">Address</label>
             <input
@@ -156,7 +182,6 @@ const Checkout = () => {
               required
             />
           </div>
-
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
               <label className="block text-gray-700">City</label>
@@ -189,7 +214,6 @@ const Checkout = () => {
               />
             </div>
           </div>
-
           <div className="mb-4">
             <label className="block text-gray-700">Country</label>
             <input
@@ -205,7 +229,6 @@ const Checkout = () => {
               required
             />
           </div>
-
           <div className="mb-4">
             <label className="block text-gray-700">Phone</label>
             <input
@@ -221,7 +244,6 @@ const Checkout = () => {
               required
             />
           </div>
-
           <div className="mt-6">
             {!checkoutId ? (
               <button type="submit" className="w-full bg-black text-white py-3 rounded">
@@ -233,15 +255,22 @@ const Checkout = () => {
                 <PayPalButton
                   amount={cart.totalPrice}
                   onSuccess={handlePaymentSuccess}
-                  onError={(err) => {
-                    alert("Payment failed. Try Again");
-                  }}
+                  onError={() => alert("Payment failed. Try Again")}
                 />
+
+                {/* COD Button */}
+                <button
+                  onClick={handleCOD}
+                  className="w-full bg-green-500 text-white py-3 rounded mt-4"
+                >
+                  Pay with Cash on Delivery
+                </button>
               </div>
             )}
           </div>
         </form>
       </div>
+
       {/* Right Section */}
       <div className="bg-gray-50 p-6 rounded-lg">
         <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
@@ -250,20 +279,17 @@ const Checkout = () => {
             <div key={index} className="flex items-center justify-between py-4 border-b">
               {/* Product Image */}
               <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded-md" />
-
               {/* Product Details */}
               <div className="flex-1 px-4">
                 <h3 className="text-md font-semibold">{product.name}</h3>
                 <p className="text-gray-500 text-sm">Size: {product.size}</p>
                 <p className="text-gray-500 text-sm">Color: {product.color}</p>
               </div>
-
               {/* Product Price */}
               <p className="text-md font-semibold">${product.price?.toLocaleString()}</p>
             </div>
           ))}
         </div>
-
         {/* Subtotal & Shipping */}
         <div className="flex justify-between items-center text-md mb-2">
           <p className="font-medium">Subtotal</p>
@@ -273,7 +299,6 @@ const Checkout = () => {
           <p className="font-medium">Shipping</p>
           <p className="font-semibold text-green-600">Free</p>
         </div>
-
         {/* Total Price */}
         <div className="flex justify-between items-center text-lg font-bold border-t pt-4">
           <p>Total</p>

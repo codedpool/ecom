@@ -25,8 +25,8 @@ router.post('/', protect, async (req, res) => {
       shippingAddress,
       paymentMethod,
       totalPrice,
-      paymentStatus: 'Pending',
-      isPaid: false, // Added default value for isPaid
+      paymentStatus: paymentMethod === 'COD' ? 'Pending' : 'Unpaid', // Handle COD status
+      isPaid: paymentMethod !== 'COD', // COD is not paid upfront
     });
 
     console.log(`Checkout created for user: ${req.user._id}`);
